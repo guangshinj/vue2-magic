@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="nav-container">
     <h1>一级导航栏</h1>
     <ul>
       <li>
@@ -28,18 +28,4 @@ export default class TopNavigator extends Vue {
 </script>
 
 <style scoped lang="less">
-h1 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>

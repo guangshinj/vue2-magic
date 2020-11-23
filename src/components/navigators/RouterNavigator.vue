@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <h3>二级导航栏</h3>
+  <div class="nav-container">
+    <h2>二级导航栏</h2>
     <ul>
       <li>
         <router-link to="/router/router-hook">路由钩子</router-link>
@@ -22,18 +22,4 @@ export default class SlotNavigator extends Vue {
 </script>
 
 <style scoped lang="less">
-h1 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
