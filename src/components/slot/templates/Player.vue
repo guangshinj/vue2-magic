@@ -44,7 +44,7 @@ export default class Player extends Vue {
       bottomData: 'footer here!',
       details: {
         title: '屋顶',
-        content: ['a', 'bc', 'def'],
+        content: ['ab', 'bc', 'def'],
         url: ''
       }
     }

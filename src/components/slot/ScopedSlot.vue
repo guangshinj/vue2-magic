@@ -4,12 +4,12 @@
     <section>
       <Player>
         <template v-slot>
-          <FilterItem :totalItems="items">
+          <FilteringItem :totalItems="items">
             <template v-slot:item="slotProps">
               <span v-if="slotProps.data.checked">✓</span>
               {{ slotProps.data.name }}
             </template>
-          </FilterItem>
+          </FilteringItem>
         </template>
         <template v-slot:left="slotProps">
           <div>
@@ -42,12 +42,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import Player from '@/components/slot/templates/Player.vue'
-import FilterItem from '@/components/slot/templates/FilterItem.vue'
+import FilteringItem from '@/components/slot/templates/FilteringItem.vue'
 
 @Component({
   components: {
     Player,
-    FilterItem
+    FilteringItem
   }
 })
 export default class ScopedSlot extends Vue {
