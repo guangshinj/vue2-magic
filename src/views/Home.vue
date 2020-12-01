@@ -10,6 +10,10 @@ export default {
   name: 'Home',
   components: {
   },
+  mounted () {
+    console.info(this.$router.options.routes, this.$router.getMatchedComponents('home'))
+    console.info(this.$route)
+  }
 };
 </script>
 <style scoped lang="less">

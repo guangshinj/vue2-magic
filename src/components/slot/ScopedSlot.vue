@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h3>作用域插槽</h3>
     <section>
       <Player>
         <template v-slot>

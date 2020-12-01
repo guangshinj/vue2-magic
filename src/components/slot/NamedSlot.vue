@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h3>具名插槽</h3>
     <section>
       <Player>
         <template>

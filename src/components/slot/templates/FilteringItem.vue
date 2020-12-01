@@ -70,8 +70,7 @@ export default class FilteringItem extends Vue {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    height: 100px;
-    overflow-x: none;
+    overflow-x: hidden;
     overflow-y: auto;
 
     li {

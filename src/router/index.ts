@@ -4,62 +4,99 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
+export const routes: Array<RouteConfig> = [
   {
-    path: '/',
-    name: 'Home',
+    path: '/home',
+    name: '首页',
+    alias: '/',
     component: Home
   },
   {
     path: '/slot',
-    name: 'Slot',
-    component: () => import(/* webpackChunkName: "slot" */ '../views/Slot.vue'),
-    children:[
+    name: '插槽',
+    component: () => import('../views/SecondaryFrame.vue'),
+    children: [
       {
-        path:'named-slot',
-        alias:'',
-        component: () => import('@/components/slot/NamedSlot.vue'),
+        path: 'named-slot',
+        alias: '',
+        name: '具名插槽',
+        component: () => import(/* webpackChunkName: "slot" */ '@/components/slot/NamedSlot.vue'),
       },
       {
-        path:'scoped-slot',
-        component: () => import('@/components/slot/ScopedSlot.vue'),
+        path: 'scoped-slot',
+        name: '作用域插槽',
+        component: () => import(/* webpackChunkName: "slot" */ '@/components/slot/ScopedSlot.vue'),
+      },
+    ]
+  },
+  {
+    path: '/dynamicCSS',
+    name: '数据响应CSS',
+    component: () => import(/* webpackChunkName: "dynamicCSS" */ '../views/SecondaryFrame.vue'),
+    children: [
+      {
+        path: 'reactive-class',
+        alias: '',
+        name: '数据响应class',
+        component: () => import('@/components/dynamicCSS/CssClass.vue'),
+      },
+      {
+        path: 'reactive-style',
+        name: '数据响应style',
+        component: () => import('@/components/dynamicCSS/CssStyle.vue'),
       },
     ]
   },
   {
     path: '/vuex',
     name: 'Vuex',
-    component: () => import(/* webpackChunkName: "vuex" */ '../views/Vuex.vue'),
-    children:[
+    component: () => import(/* webpackChunkName: "vuex" */ '../views/SecondaryFrame.vue'),
+    children: [
       {
-        path:'vuex-using',
-        alias:'',
+        path: 'vuex-using',
+        alias: '',
+        name: 'vuex',
         component: () => import('@/components/vuex/VuexUsing.vue'),
       }
     ]
   },
   {
     path: '/router',
-    name: 'Router',
-    component: () => import(/* webpackChunkName: "router" */ '../views/Router.vue'),
-    children:[
+    name: '路由',
+    component: () => import(/* webpackChunkName: "router" */ '../views/SecondaryFrame.vue'),
+    children: [
       {
-        path:'router-hook',
-        alias:'',
+        path: 'router-hook',
+        alias: '',
+        name: '路由钩子',
         component: () => import('@/components/router/RouterHook.vue'),
       },
       {
-        path:'router-params',
+        path: 'router-params',
+        name: '路由传参',
         component: () => import('@/components/router/RouterParams.vue'),
       },
     ]
   }
 ]
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
-
-export default router
+router.beforeEach((to, from, next) => {
+  const { path, matched } = to
+  const lastRoute = matched[matched.length - 1]
+  console.info('aa', path, matched)
+  if (path == '/' || path == '') {
+    next('/home')
+  } if (path != lastRoute.path) {
+    next(lastRoute.path)
+  } else {
+    next()
+  }
+})
+router.afterEach((to, from) => {
+  console.info(to, from, router.getMatchedComponents(to.path))
+})
