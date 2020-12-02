@@ -1,5 +1,6 @@
 <template>
-  <div class="nav-container">
+  <div class="nav-container"
+       title='路由导航都是函数组件生成的'>
     <div class="top rows">
       <h1 class="title">一级导航栏</h1>
       <router-ul :routes="routes"></router-ul>
@@ -9,6 +10,7 @@
       <h2 class="title">二级导航栏</h2>
       <router-ul :routes="secondaryRoutes">
         <template #diy="{ route,  isActive, isExactActive }">
+          {{isActive}}{{isExactActive}}
           <span :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active']">{{ route.name }}</span>
         </template>
       </router-ul>
@@ -37,7 +39,12 @@ Vue.component('router-ul', {
 
     return createElement(
       'ul',
-      { attrs: { class: 'ul-container', slot: 'ul-slot' } },
+      {
+        attrs: {
+          class: 'ul-container',
+          slot: 'ul-slot'
+        }
+      },
       props.routes.map((route: Route) => {
         const { name, path } = route
         return createElement(
@@ -128,6 +135,8 @@ export default class SmartNavigator extends Vue {
     }
 
     .ul-container {
+      display: flex;
+      overflow: auto hidden;
       list-style-type: none;
       padding-left: 20px;
       a {
@@ -165,6 +174,7 @@ export default class SmartNavigator extends Vue {
           padding: 6px 10px;
           display: inline-block;
           border-radius: 10px;
+          white-space: nowrap;
         }
       }
     }

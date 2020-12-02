@@ -20,12 +20,12 @@ export const routes: Array<RouteConfig> = [
         path: 'named-slot',
         alias: '',
         name: '具名插槽',
-        component: () => import(/* webpackChunkName: "slot" */ '@/components/slot/NamedSlot.vue'),
+        component: () => import(/* webpackChunkName: "slot" */ '@/pages/slot/NamedSlot.vue'),
       },
       {
         path: 'scoped-slot',
         name: '作用域插槽',
-        component: () => import(/* webpackChunkName: "slot" */ '@/components/slot/ScopedSlot.vue'),
+        component: () => import(/* webpackChunkName: "slot" */ '@/pages/slot/ScopedSlot.vue'),
       },
     ]
   },
@@ -38,12 +38,12 @@ export const routes: Array<RouteConfig> = [
         path: 'reactive-class',
         alias: '',
         name: '数据响应class',
-        component: () => import('@/components/dynamicCSS/CssClass.vue'),
+        component: () => import('@/pages/dynamicCSS/CssClass.vue'),
       },
       {
         path: 'reactive-style',
         name: '数据响应style',
-        component: () => import('@/components/dynamicCSS/CssStyle.vue'),
+        component: () => import('@/pages/dynamicCSS/CssStyle.vue'),
       },
     ]
   },
@@ -56,7 +56,7 @@ export const routes: Array<RouteConfig> = [
         path: 'vuex-using',
         alias: '',
         name: 'vuex',
-        component: () => import('@/components/vuex/VuexUsing.vue'),
+        component: () => import('@/pages/vuex/VuexUsing.vue'),
       }
     ]
   },
@@ -69,12 +69,12 @@ export const routes: Array<RouteConfig> = [
         path: 'router-hook',
         alias: '',
         name: '路由钩子',
-        component: () => import('@/components/router/RouterHook.vue'),
+        component: () => import('@/pages/router/RouterHook.vue'),
       },
       {
         path: 'router-params',
         name: '路由传参',
-        component: () => import('@/components/router/RouterParams.vue'),
+        component: () => import('@/pages/router/RouterParams.vue'),
       },
     ]
   }

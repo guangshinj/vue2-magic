@@ -10,6 +10,4 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.complex-page {
-}
 </style>

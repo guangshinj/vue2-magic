@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import Player from '@/components/slot/templates/Player.vue'
+import Player from '@/components/container/ContainerLayout.vue'
 
 @Component({
   components: {
