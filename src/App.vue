@@ -25,6 +25,7 @@ html {
     height: 100%;
     box-sizing: border-box;
     margin: 0;
+    padding: 10px;
     background: #ddd;
     h1,
     h2,
@@ -49,13 +50,13 @@ html {
       display: flex;
       flex-direction: column;
 
-      .body {
+      > .body {
         flex-grow: 1;
         box-sizing: border-box;
         overflow: auto;
+        background: #fff;
         .container {
-          height: calc(100% - 30px);
-          padding: 10px;
+          // height: calc(100% - 30px);
           box-sizing: border-box;
 
           h3 {

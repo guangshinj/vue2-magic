@@ -30,7 +30,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class Player extends Vue {
+export default class ContainerLayout extends Vue {
   @Prop() private in!: string
 
   data() {

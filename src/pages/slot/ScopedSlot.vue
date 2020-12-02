@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section>
-      <Player>
+      <ContainerLayout>
         <template v-slot>
           <FilteringItem :totalItems="items">
             <template v-slot:item="slotProps">
@@ -33,18 +33,18 @@
         <template v-slot:bottom="slotProps">
           {{slotProps.data}}
         </template>
-      </Player>
+      </ContainerLayout>
     </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import Player from '@/components/container/ContainerLayout.vue'
+import ContainerLayout from '@/components/container/ContainerLayout.vue'
 import FilteringItem from '@/components/item-list/FilteringItem.vue'
 @Component({
   components: {
-    Player,
+    ContainerLayout,
     FilteringItem
   }
 })

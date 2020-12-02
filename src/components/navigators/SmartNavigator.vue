@@ -35,7 +35,6 @@ Vue.component('router-ul', {
   },
   render: function (createElement, context) {
     const { props, scopedSlots } = context
-    console.info(scopedSlots)
 
     return createElement(
       'ul',
@@ -65,7 +64,7 @@ Vue.component('router-ul', {
                 attrs: {
                   to: path
                 }
-                // 没搞懂怎么用这个玩意
+                // 用来向router-link插入
                 // scopedSlots: {
                 //   diy: ({ href, route, isActive, isExactActive }) => {
                 //     return createElement('div', route.name)
@@ -89,11 +88,9 @@ export default class SmartNavigator extends Vue {
 
   private secondaryRoutes: Array<RouteConfig> = []
   getSecondaryRoutes() {
-    console.info(this.$router.currentRoute)
     const currentRoute = this.$router.currentRoute
     const top = currentRoute.matched[0] || { path: '---' } // 一级路由节点
     const match = routes.find((e) => e.path === top.path) || ({} as RouteConfig)
-    console.info('jb', this.$router.currentRoute.path, match)
     let children = []
     if (match && match.children) {
       children = match.children.map((e) => {
@@ -109,8 +106,7 @@ export default class SmartNavigator extends Vue {
   }
 
   @Watch('$route', { immediate: true })
-  routeChanged(val, old) {
-    console.info('dfsd', val, old)
+  routeChanged() {
     this.secondaryRoutes = this.getSecondaryRoutes()
   }
 

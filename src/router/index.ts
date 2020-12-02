@@ -12,8 +12,13 @@ export const routes: Array<RouteConfig> = [
     component: Home
   },
   {
+    path: '/dynamicCSS',
+    name: '数据响应CSS',
+    component: () => import(/* webpackChunkName: "dynamicCSS" */ '@/pages/dynamicCSS/index.vue')
+  },
+  {
     path: '/slot',
-    name: '插槽',
+    name: 'Slot',
     component: () => import('../views/SecondaryFrame.vue'),
     children: [
       {
@@ -26,24 +31,6 @@ export const routes: Array<RouteConfig> = [
         path: 'scoped-slot',
         name: '作用域插槽',
         component: () => import(/* webpackChunkName: "slot" */ '@/pages/slot/ScopedSlot.vue'),
-      },
-    ]
-  },
-  {
-    path: '/dynamicCSS',
-    name: '数据响应CSS',
-    component: () => import(/* webpackChunkName: "dynamicCSS" */ '../views/SecondaryFrame.vue'),
-    children: [
-      {
-        path: 'reactive-class',
-        alias: '',
-        name: '数据响应class',
-        component: () => import('@/pages/dynamicCSS/CssClass.vue'),
-      },
-      {
-        path: 'reactive-style',
-        name: '数据响应style',
-        component: () => import('@/pages/dynamicCSS/CssStyle.vue'),
       },
     ]
   },
@@ -62,7 +49,7 @@ export const routes: Array<RouteConfig> = [
   },
   {
     path: '/router',
-    name: '路由',
+    name: 'Router',
     component: () => import(/* webpackChunkName: "router" */ '../views/SecondaryFrame.vue'),
     children: [
       {

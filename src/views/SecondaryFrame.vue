@@ -10,4 +10,8 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.complex-page {
+  box-sizing: border-box;
+  // padding: 0 10px;
+}
 </style>
