@@ -65,6 +65,11 @@ html {
             opacity: 0.7;
           }
         }
+
+        // 默认的样式
+        button {
+          margin: 4px;
+        }
       }
     }
   }

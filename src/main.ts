@@ -7,8 +7,10 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
-new Vue({
+const vue = new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+})
+console.info('vue实例：', vue)
+vue.$mount('#app')

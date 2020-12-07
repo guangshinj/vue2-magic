@@ -12,9 +12,14 @@ export const routes: Array<RouteConfig> = [
     component: Home
   },
   {
+    path: '/dynamicData',
+    name: '数据响应能力',
+    component: () => import(/* webpackChunkName: "dynamic" */ '@/pages/reactive/Addition.tsx')
+  },
+  {
     path: '/dynamicCSS',
     name: '数据响应CSS',
-    component: () => import(/* webpackChunkName: "dynamicCSS" */ '@/pages/dynamicCSS/index.vue')
+    component: () => import(/* webpackChunkName: "dynamic" */ '@/pages/dynamicCSS/index.vue')
   },
   {
     path: '/slot',
@@ -75,7 +80,6 @@ export const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const { path, matched } = to
   const lastRoute = matched[matched.length - 1]
-  console.info('aa', path, matched)
   if (path == '/' || path == '') {
     next('/home')
   } if (path != lastRoute.path) {
