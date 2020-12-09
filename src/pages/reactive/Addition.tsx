@@ -172,7 +172,7 @@ export default class Addition extends Vue {
         ),
         createElement(
           'ul',
-          this.todos.map((item, index) => {
+          this.todos.map((item) => {
             return createElement(
               ToDoItem,
               {

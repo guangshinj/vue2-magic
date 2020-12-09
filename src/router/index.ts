@@ -12,6 +12,11 @@ export const routes: Array<RouteConfig> = [
     component: Home
   },
   {
+    path: '/events',
+    name: '事件及修饰符',
+    component: () => import('@/pages/base/Events.vue')
+  },
+  {
     path: '/dynamicData',
     name: '数据响应能力',
     component: () => import(/* webpackChunkName: "dynamic" */ '@/pages/reactive/Addition.tsx')
